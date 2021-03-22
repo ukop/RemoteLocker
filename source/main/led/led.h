@@ -8,7 +8,7 @@
 #ifndef _LED_LED_H
 #define _LED_LED_H
 
-#define LED_GPIO    2   ///< Status led GPIO on ESP32 DEVKITv1 board.
+#define LED_GPIO    CONFIG_STATUS_LED_GPIO   ///< Led GPIO.
 
 /** @brief  Function to configure status led.
  */

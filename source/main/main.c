@@ -9,10 +9,14 @@
 
 #include "webServer/webServer.h"
 #include "led/led.h"
+#include <logs/logs.h>
+#include <config.h>
 
 
 void app_main(void)
 {
+    logs_send("Run Remote Locker ...\n");
+
     led_initStatusLed();
     led_startBlinkingStatusLed(1000);
 

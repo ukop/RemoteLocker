@@ -12,6 +12,8 @@
 #include "freertos/task.h"
 #include "driver/gpio.h"
 #include "sdkconfig.h"
+#include <logs/logs.h>
+#include <config.h>
 
 void led_wait(int interval)
 {
@@ -30,12 +32,12 @@ void led_startBlinkingStatusLed(int interval)
     while(1)
     {
         /* Blink off (output low) */
-	    printf("Turning off the LED\n");
+	    logs_send("Turning off the LED\n");
         gpio_set_level(LED_GPIO, 0);
         led_wait(interval);
 
         /* Blink on (output high) */
-	    printf("Turning on the LED\n");
+	    logs_send("Turning on the LED\n");
         gpio_set_level(LED_GPIO, 1);
         led_wait(interval);
     }
