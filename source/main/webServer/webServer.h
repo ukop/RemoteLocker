@@ -9,31 +9,24 @@
 #define _WEBSERVER_WEBSERVER_H
 
 #include <esp_wifi.h>
-//#include <esp_event_loop.h>
-#include <esp_log.h>
 #include <esp_system.h>
 #include <nvs_flash.h>
 #include <sys/param.h>
 #include <esp_http_server.h>
 
-#if 0
-#include <systemheader1.h>
-#include <systemheader2.h>
-
-#include <box/header1.h>
-#include <box/header2.h>
-
-#include "local_header1.h"
-#include "local_header2.h"
-#endif
-
 #define WEBSERVER_SSID      "ssid"      ///< WiFi SSID.
-#define WEBSERVER_PASSWODD  "password"  ///< WiFi password.
+#define WEBSERVER_PASSWORD  "password"  ///< WiFi password.
 
-/** @brief  Function t o initialize web server.
+/** @brief  Function to initialize web server.
  *
- *  @return void
+ *  @return esp_err_t
  */
-void webServer_init(void);
+esp_err_t webServer_init(void);
+
+/** @brief  Function to deinitialize web server.
+ *
+ *  @return esp_err_t
+ */
+esp_err_t webServer_deinit(void);
 
 #endif /* _WEBSERVER_WEBSERVER_H */

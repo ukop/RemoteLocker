@@ -15,10 +15,16 @@
 
 void app_main(void)
 {
-    logs_send("Run Remote Locker ...\n");
+    //logs_send("Run Remote Locker ...\n");
 
-    led_initStatusLed();
-    led_startBlinkingStatusLed(1000);
+    //led_initStatusLed();
+    //led_startBlinkingStatusLed(1000);
 
-    webServer_init();
+    esp_err_t status = webServer_init();
+
+    if (status == ESP_OK)
+    {
+        vTaskDelay(1000);
+        logs_send("Run Web Server ...\n");
+    }
 }

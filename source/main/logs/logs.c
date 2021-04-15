@@ -6,7 +6,6 @@
  */
 
 #include <logs/logs.h>
-#include <config.h>
 
 #include <stdio.h>
 
@@ -16,4 +15,3 @@ void logs_send(char const* const msg)
     printf(msg);
 #endif
 }
-
