@@ -7,24 +7,18 @@
 
 #include <led/led.h>
 
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
 #include "driver/gpio.h"
 #include "sdkconfig.h"
 #include <logs/logs.h>
 
 static bool led_initialized = FALSE;
 
-static void led_wait(int interval)
-{
-    vTaskDelay(interval / portTICK_PERIOD_MS);
-}
-
 void led_initStatusLed(void)
 {
     if (!led_initialized)
     {
         gpio_pad_select_gpio(LED_GPIO);
+
         /* Set the GPIO as a push/pull output */
         gpio_set_direction(LED_GPIO, GPIO_MODE_OUTPUT);
 

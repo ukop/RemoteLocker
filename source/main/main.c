@@ -15,7 +15,7 @@
 
 void app_main(void)
 {
-    logs_send("Run Remote Locker ...\n");
+    LOG_SEND(LOG_INFO, "Run Remote Locker ...\n");
 
     led_initStatusLed();
 
@@ -24,6 +24,6 @@ void app_main(void)
     if (status == ESP_OK)
     {
         vTaskDelay(1000);
-        logs_send("Run Web Server ...\n");
+        LOG_SEND(LOG_INFO, "Run Web Server ...\n")
     }
 }
