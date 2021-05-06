@@ -8,17 +8,22 @@
 #ifndef _LED_LED_H
 #define _LED_LED_H
 
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdint.h>
+#include <config.h>
+
 #define LED_GPIO    CONFIG_STATUS_LED_GPIO   ///< Led GPIO.
 
 /** @brief  Function to configure status led.
  */
 void led_initStatusLed(void);
 
-/** @brief  Function to start blinking status led
+/** @brief  Function to set/clear led.
  *
- *  @param  interval blinking interval in miliseconds.
+ *  @param  state 0 = OFF, 1 = ON.
  *  @return void
  */
-void led_startBlinkingStatusLed(int interval);
+void led_setLed(bool state);
 
 #endif /* _LED_LED_H */

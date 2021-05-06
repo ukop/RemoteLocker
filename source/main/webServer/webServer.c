@@ -12,6 +12,7 @@
 #include <esp_http_server.h>
 #include <webServer/webServer.h>
 #include <logs/logs.h>
+#include <led/led.h>
 
 static httpd_handle_t webServer_server;
 
@@ -63,10 +64,12 @@ esp_err_t action_handler(httpd_req_t *req)
     if (strcmp(state, "open") == 0)
     {
         sprintf(response, test, GREEN_COLOR, "?state=close", "OPENED");
+        led_setLed(1);
     }
     else if (strcmp(state, "close") == 0)
     {
         sprintf(response, test, RED_COLOR, "?state=open", "CLOSED");
+        led_setLed(0);
     }
     else
     {

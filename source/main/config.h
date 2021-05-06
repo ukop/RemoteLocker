@@ -8,6 +8,9 @@
 #ifndef _CONFIG_H
 #define _CONFIG_H
 
+#define TRUE    (0==0)
+#define FALSE   !TRUE
+
 #define CONFIG_STATUS_LED_GPIO    2   ///< Status led GPIO on ESP32 DEVKITv1 board.
 
 #define CONFIG_LOG_MSG_ON  1   ///< ON log messages via UART

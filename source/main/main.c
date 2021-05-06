@@ -15,10 +15,9 @@
 
 void app_main(void)
 {
-    //logs_send("Run Remote Locker ...\n");
+    logs_send("Run Remote Locker ...\n");
 
-    //led_initStatusLed();
-    //led_startBlinkingStatusLed(1000);
+    led_initStatusLed();
 
     esp_err_t status = webServer_init();
 
