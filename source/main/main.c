@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include "sdkconfig.h"
 
+#include "servo/servo.h"
 #include "webServer/webServer.h"
 #include "led/led.h"
 #include <logs/logs.h>
@@ -26,4 +27,6 @@ void app_main(void)
         vTaskDelay(1000);
         LOG_SEND(LOG_INFO, "Run Web Server ...\n")
     }
+
+    servo_init();
 }
