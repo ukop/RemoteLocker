@@ -13,10 +13,11 @@
 #include <logs/logs.h>
 #include <config.h>
 
-
 void app_main(void)
 {
     LOG_SEND(LOG_INFO, "Run Remote Locker ...\n");
+
+    servo_init();
 
     led_initStatusLed();
 
@@ -28,5 +29,19 @@ void app_main(void)
         LOG_SEND(LOG_INFO, "Run Web Server ...\n")
     }
 
-    servo_init();
+   while(1)
+    {
+        servo_setDir(SERVO_DIR_NEUTRAL);
+        LOG_SEND(LOG_INFO, "NEUTRAL ...\n")
+        vTaskDelay(1000);
+        servo_setDir(SERVO_DIR_RIGHT);
+        LOG_SEND(LOG_INFO, "RIGHT ...\n")
+        vTaskDelay(1000);
+        servo_setDir(SERVO_DIR_NEUTRAL);
+        LOG_SEND(LOG_INFO, "NEUTRAL ...\n")
+        vTaskDelay(1000);
+        servo_setDir(SERVO_DIR_LEFT);
+        LOG_SEND(LOG_INFO, "LEFT ...\n")
+        vTaskDelay(1000);
+    }
 }
